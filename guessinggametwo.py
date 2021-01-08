@@ -9,26 +9,33 @@
 #At the end of this exchange, your program should print out 
 # how many guesses it took to get your number.
 
-guess_num = int
+
 start_index = 1
-middle_index = 50
+
 end_index = 100
+guess_check = ""
+count = 0
 
 print("Guessing game beginning!  Think of your number between 1 and 100, user!")
 print("Type H, for too high...type L, for too low...type Y, for the correct number!")
 
-while True:
-    print("my guess is = "+ str(middle_index))
-    guess_check = input("Did I get it right? H, L, Y?")
+while guess_check !='y':
+    count+=1
+
+    middle_index = (end_index + start_index)//2
+    print(middle_index)
+
+    guess_check = input("my guess is %s.  Did I get it right? H, L, Y?"%(middle_index))
     
     if guess_check == "y":
-        print("great! I won!")
-        break
-    elif guess_check == "h":
+        print("great! I won!, took me %s"%(count))
+
+    if guess_check == "h":
         end_index = middle_index
-    elif guess_check == 'l':
+
+    if guess_check == 'l':
         start_index = middle_index
-    middle_index = (start_index - end_index) / 2
+    
     
     
 
